@@ -27,8 +27,8 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v3
         with:
-          context: .
-          file: ./services/web/Dockerfile
+          context: ./services/web/
+          file: ./Dockerfile
           push: ${{ (github.ref_name == 'main') && 'true' || 'false' }}
           tags: ${{ env.IMAGE }}:${{ env.TAG }}
 
