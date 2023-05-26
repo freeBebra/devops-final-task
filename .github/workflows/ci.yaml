@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/flask_app
+      IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/final_task_app
       TAG: "${{ inputs.tag != '' && inputs.tag || github.ref_name }}"
     steps:
       - name: Check out Project
@@ -33,5 +33,7 @@ jobs:
           tags: ${{ env.IMAGE }}:${{ env.TAG }}
 
       - name: Tests
-        run: |
-          docker-compose up -d
+        with:
+          context: .
+          run: |
+            docker-compose up -d
