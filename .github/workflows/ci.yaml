@@ -33,7 +33,5 @@ jobs:
           tags: ${{ env.IMAGE }}:${{ env.TAG }}
 
       - name: Tests
-        with:
-          context: .
         run: |
           docker-compose up -d
