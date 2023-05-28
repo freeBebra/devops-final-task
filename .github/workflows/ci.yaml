@@ -35,5 +35,5 @@ jobs:
       - name: Tests
         with:
           context: .
-          run: |
-            docker-compose up -d
+        run: |
+          docker-compose up -d
