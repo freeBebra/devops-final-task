@@ -1,10 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: shpagin-namespace
 images:
-  - name: final-task-image
-    newName: shpagin-devops-final-task
-    newTag: v1.1.1
+  - name: nginx
+    newName: nginx
+    newTag: 1.23.2-alpine
+  - name: cxcxmbxr/final_task_app
+    newTag: main
+
+
 
 resources:
 - ../../base

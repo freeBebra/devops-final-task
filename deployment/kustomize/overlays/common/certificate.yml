@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: shpagin-certificate
+spec:
+  dnsNames:
+  - 'shpagin.dacdevops.ru'
+  issuerRef:
+    kind: ClusterIssuer
+    name: yc-clusterissuer
+  secretName: shpagin-cert
