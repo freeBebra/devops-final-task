@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: shpagin-namespace
+images:
+- name: shpagin/sampleapp
+  newName: shpagin/sampleapp
+  newTag: newshpagin
+- name: nginx
+  newName: nginx
+  newTag: 1.23.2-alpine
+
+resources:
+- ../../base
+- namespace.yml
+- ingress.yml
+- certificate.yml
