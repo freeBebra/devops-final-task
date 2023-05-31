@@ -6,7 +6,7 @@ commonLabels:
 
 images:
   - name: final-task
-    newName: freeBebra/shpagin-devops-final-task
+    newName: shpagin-devops-final-task
     newTag: v1.1.0
 
 resources:
