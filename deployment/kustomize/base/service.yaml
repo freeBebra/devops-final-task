@@ -5,9 +5,9 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 8000
+      port: 5000
       protocol: TCP
-      targetPort: 8000
+      targetPort: 5000
   selector:
     app: shpagin-devops-final-task
   type: NodePort
