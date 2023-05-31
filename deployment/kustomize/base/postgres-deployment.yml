@@ -17,7 +17,7 @@ spec:
           image: postgres
           envFrom:
             - secretRef:
-                name: sampleapp-secret
+                name: final_task_app-secret
           ports:
             - containerPort: 5432
           volumeMounts:

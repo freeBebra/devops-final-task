@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sampleapp-ingress
+  name: final_task_app-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
@@ -13,7 +13,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: sampleapp-service
+                name: final_task_app-service
                 port:
                   name: http
   tls:

@@ -1,32 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sampleapp-deployment
+  name: final_task_app-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sampleapp
+      app: final_task_app
   template:
     metadata:
       labels:
-        app: sampleapp
+        app: final_task_app
     spec:
       initContainers:
-        - name: sampleapp-migrate
-          image: shpagin/sampleapp
-          command: ["python", "manage.py", "migrate"]
+        - name: final_task_app-migrate
+          image: shpagin/final_task_app
+          command: ["python", "manage.py"]
           ports:
             - containerPort: 8000
           envFrom:
             - secretRef:
-                name: sampleapp-secret
+                name: final_task_app-secret
       containers:
-        - name: sampleapp
-          image: shpagin/sampleapp
-          command: ["gunicorn", "--bind", "0.0.0.0:8000", "sampleproject.wsgi"]
+        - name: final_task_app
+          image: shpagin/final_task_app
           ports:
             - containerPort: 8000
           envFrom:
             - secretRef:
-                name: sampleapp-secret
+                name: final_task_app-secret

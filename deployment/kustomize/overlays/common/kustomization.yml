@@ -3,15 +3,16 @@ kind: Kustomization
 
 namespace: shpagin-namespace
 images:
-- name: shpagin/sampleapp
-  newName: shpagin/sampleapp
-  newTag: newshpagin
-- name: nginx
-  newName: nginx
-  newTag: 1.23.2-alpine
+  - name: nginx
+    newName: nginx
+    newTag: 1.23.2-alpine
+  - name: cxcxmbxr/final_task_app
+    newTag: main
+
+
 
 resources:
 - ../../base
-- namespace.yml
-- ingress.yml
-- certificate.yml
+- ingress.yaml
+- namespace.yaml
+- certificate.yaml
