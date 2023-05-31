@@ -5,8 +5,12 @@ metadata:
   namespace: shpagin-devops-final-task
 spec:
   dnsNames:
-  - 'shpagin.dacdevops.ru'
-  issuerRef:
-    kind: ClusterIssuer
-    name: yc-clusterissuer
-  secretName: shpagin-devops-final-task-cert
+  - shpagin.dacdevops.ru
+  service:
+    name: shpagin-devops-final-task-service
+    port:
+      name: http
+  tls:
+  - hosts:
+    - shpagin.dacdevops.ru
+    secretName: shpagin-devops-final-task-cert

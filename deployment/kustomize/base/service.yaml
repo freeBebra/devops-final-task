@@ -1,13 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
+  labels:
+    app: shpagin-devops-final-task
   name: shpagin-devops-final-task-service
 spec:
   ports:
-    - name: http
-      port: 5000
-      protocol: TCP
-      targetPort: 5000
+  - name: http
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
   selector:
     app: shpagin-devops-final-task
   type: NodePort

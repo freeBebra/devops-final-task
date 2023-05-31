@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shpagin-devops-final-task-deployment-app
   labels:
     app: shpagin-devops-final-task
+  name: shpagin-devops-final-task-deployment-app
 spec:
   replicas: 1
   selector:
@@ -14,31 +14,30 @@ spec:
       labels:
         app: shpagin-devops-final-task
     spec:
-      initContainers:
-        - name: final-task-migrate
-          image: final-task-image
-          args:
-            - migrate
-          envFrom:
-            - secretRef:
-                name: shpagin-devops-final-task-postgres-secret
       containers:
-        - name: final-task
-          image: final-task-image
-          args:
-            - gunicorn
-          ports:
-            - name: http
-              containerPort: 5000
-              protocol: TCP
-          envFrom:
-            - secretRef:
-                name: shpagin-devops-final-task-postgres-secret
-          resources:
-            requests:
-              memory: "256Mi"
-              cpu: "500m"
-            limits:
-              memory: "500Mi"
-              cpu: "1"
-
+      - args:
+        - gunicorn
+        envFrom:
+        - secretRef:
+            name: shpagin-devops-final-task-postgres-secret
+        image: shpagin-devops-final-task:v1.1.1
+        name: final-task
+        ports:
+        - containerPort: 5000
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "1"
+            memory: 500Mi
+          requests:
+            cpu: 500m
+            memory: 256Mi
+      initContainers:
+      - args:
+        - migrate
+        envFrom:
+        - secretRef:
+            name: shpagin-devops-final-task-postgres-secret
+        image: shpagin-devops-final-task:v1.1.1
+        name: final-task-migrate
