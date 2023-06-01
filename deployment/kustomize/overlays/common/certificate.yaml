@@ -1,11 +1,12 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: shpagin-certificate
+  name: shpagin-devops-final-task-certificate
+  namespace: shpagin-devops-final-task
 spec:
   dnsNames:
   - 'shpagin.dacdevops.ru'
   issuerRef:
     kind: ClusterIssuer
     name: yc-clusterissuer
-  secretName: shpagin-cert
+  secretName: shpagin-devops-final-task-cert
