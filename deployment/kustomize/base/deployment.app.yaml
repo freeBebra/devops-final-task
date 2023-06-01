@@ -16,7 +16,7 @@ spec:
     spec:
       images:
         - name: final-task-image
-          newName: cxcxmbxr/final_task_app
+          newName: cxcxmbxr/final_task_app:main
           newTag: main
       initContainers:
         - name: final-task-migrate
