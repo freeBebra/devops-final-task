@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: final_task_app-ingress
+  name: shpagin-devops-final-task-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
@@ -13,10 +13,10 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: final_task_app-service
+                name: shpagin-devops-final-task-service
                 port:
                   name: http
   tls:
     - hosts:
       - shpagin.dacdevops.ru
-      secretName: shpagin-cert
+      secretName: shpagin-devops-final-task-cert
