@@ -3,7 +3,7 @@ kind: Kustomization
 
 images:
   - name: final-task-image
-    newName: freeBebra/shpagin-devops-final-task
+    newName: cxcxmbxr/final_task_app:main
     newTag: v1.1.1
 
 resources:
