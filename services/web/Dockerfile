@@ -13,4 +13,6 @@ RUN pip install -r requirements.txt
 
 RUN chmod +x entrypoint.sh
 
+ENV FLASK_APP=__init__.py
+
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
