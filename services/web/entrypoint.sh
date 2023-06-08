@@ -17,6 +17,7 @@ if [ $# = 1 ]; then
     fi
 fi
 
+export FLASK_APP=project/__init__.py
 python manage.py --app project/__init__.py create_db
 
 exec "$@"
